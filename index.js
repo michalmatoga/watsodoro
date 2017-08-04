@@ -1,3 +1,19 @@
+#! /usr/bin/env node
+
 'use strict';
 
-console.log('hello world');
+const program = require('commander');
+const watsodoro = require('./lib/watsodoro');
+
+program
+  .version('0.1.0')
+  .option('start [watson params]', 'Start watsodoro timer')
+  .parse(process.argv);
+
+if (program.start) {
+  watsodoro.start(program.args);
+  process.on('SIGINT', () => {
+    watsodoro.cancel();
+    process.exit();
+  });
+}

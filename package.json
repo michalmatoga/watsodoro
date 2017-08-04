@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "description": "Watson time tracker + pomodoro timer",
   "main": "index.js",
+  "bin": {
+    "watsodoro": "./index.js"
+  },
   "scripts": {
     "preinstall": "type watson",
     "start": "node index",
     "test:eslint": "eslint .",
-    "test:mocha": "NODE_ENV=test mocha --recursive test",
-    "test:coverage": "NODE_ENV=test istanbul cover _mocha -- --recursive test/",
-    "test": "npm outdated | grep -v ' > '; npm run test:eslint && npm run test:mocha"
+    "test": "npm outdated | grep -v ' > '; npm run test:eslint"
   },
   "author": "Michał Matoga",
   "contributors": [
@@ -31,16 +32,12 @@
     "node": "8"
   },
   "devDependencies": {
-    "chai": "^4.0.2",
-    "chai-as-promised": "^7.1.0",
-    "chance": "^1.0.8",
     "eslint": "^4.3.0",
     "eslint-config-airbnb-base": "^11.3.0",
-    "eslint-plugin-import": "2.7.0",
-    "istanbul": "^1.1.0-alpha.1",
-    "mocha": "^3.4.1",
-    "sinon": "^3.0.0",
-    "sinon-chai": "^2.10.0"
+    "eslint-plugin-import": "2.7.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "commander": "^2.9.0",
+    "play-sound": "^1.1.1"
+  }
 }
